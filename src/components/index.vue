@@ -29,15 +29,14 @@
       <div class="form-group column col-xl-6 has-icon-right">
         <label class="form-label url-title col-xl-2" for="origin_url">下载链接</label>
         <input class="form-input"
-               :class="{'is-success': checkSuccess}"
+               :class="{'is-success': checkFinalSuccess}"
                type="url"
                id="origin_url"
-               placeholder="https://msjsdiag.gallery.vsassets.io/_apis/public/gallery/publisher/msjsdiag/extension/debugger-for-chrome/3.1.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+               placeholder="转换后的下载链接"
                v-model="finalUrl"/>
-        <i class="form-icon loading" v-show="checkFinalUrl"></i>
       </div>
       <div class="form-group column col-xl-3">
-        <button :disabled='!showCopyBtn' class="btn transform-btn tooltip tooltip-right" data-tooltip="复制到剪切板" @click="copy()"><i class="icon icon-download"></i></button>
+        <button :disabled='!checkFinalSuccess' class="btn transform-btn tooltip tooltip-right" data-tooltip="复制到剪切板" @click="copy()"><i class="icon icon-download"></i></button>
       </div>
     </div>
   </div>
@@ -58,8 +57,7 @@ export default {
       originUrlError: false,
       checkOriginUrl: false,
       checkSuccess: false,
-      checkFinalUrl: false,
-      showCopyBtn: false
+      checkFinalSuccess: false
     }
   },
   methods: {
@@ -73,6 +71,9 @@ export default {
         return
       }
       this.checkOriginUrl = true
+      this.checkSuccess = false
+      this.checkFinalSuccess = false
+      this.finalUrl = ''
       // 检测原始地址是否有效
       this.$http.get(this.originUrl)
       .then((ret) => {
@@ -87,20 +88,12 @@ export default {
     },
     transformUrl () {
       this.versionError = this.originUrlError = false
-      let publisher = this.originUrl.match(/itemName=(\S*)\./)[1]
+      let publisher = this.originUrl.match(/itemName=(\S*)/)[1].split('.')[0]
       let extension_name = this.originUrl.match(/itemName=(\S*)/)[1].split('.')[1]
       let version   = this.version
       let regString = `https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension_name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage`
-      this.checkFinalUrl = true
-      this.$http.get(regString)
-      .then((ret) => {
-        if (ret.status === 200) {
-          this.checkFinalUrl = false
-          this.checkSuccess = true
-          this.showCopyBtn = true
-          this.finalUrl = regString
-        }
-      })
+      this.finalUrl = regString
+      this.checkFinalSuccess = true
     },
     copy (url) {
       this.$clipboard(this.finalUrl)
