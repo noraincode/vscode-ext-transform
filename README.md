@@ -1,4 +1,4 @@
-> VS Code 编辑器插件离线下载地址转换工具
+> [VS Code 编辑器插件离线下载地址转换工具  (戳这里)](http://xocode.coding.me/vscode-ext-downlink/)
 
 ## 如何下载插件
 ### 1、进入vscode插件官网 <https://marketplace.visualstudio.com/>
