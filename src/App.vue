@@ -2,30 +2,38 @@
   <div id="app">
     <header class="navbar">
       <section class="navbar-section">
-        <a href="#" class="navbar-brand mr-10">VS Code Ext</a>
-        <a href="https://github.com/noraincode/vscode-ext-transform" class="btn btn-link">GitHub</a>
+        <a href="https://marketplace.visualstudio.com" class="navbar-brand mr-10" target="_blank">VS Code 插件官网</a>
+        <a class="btn btn-link" @click="showHelp=!showHelp">如何使用</a>
       </section>
       <section class="navbar-section">
         <div class="input-group input-inline">
-          <input class="form-input" type="text" placeholder="search" />
-          <button class="btn btn-primary input-group-btn">Search</button>
+          <a href="https://github.com/noraincode/vscode-ext-transform" class="btn btn-link" target="_blank">GitHub</a>
         </div>
       </section>
     </header>
     <div class="icon-box">
-      <img class="icon-img" src="http://or60gmbpq.bkt.clouddn.com/17-7-26/12755791.jpg">
+      <img class="icon-img" src="http://or60gmbpq.bkt.clouddn.com/17-7-27/14006309.jpg">
     </div>
-    <hello></hello>
+    <home></home>
+    <footer>
+      © 2017 Designed By &nbsp;<a class="author" href="https://github.com/noraincode" target="_blank">norain4u</a>
+    </footer>
+    <help :show.sync="showHelp"></help>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-
+import Home from './components/index'
+import help from './components/help.vue'
 export default {
   name: 'app',
   components: {
-    Hello
+    Home, help
+  },
+  data () {
+    return {
+      showHelp: false
+    }
   }
 }
 </script>
@@ -38,7 +46,6 @@ export default {
   width: 80%;
   border-radius: 4px;
   background-color: #fff;
-  // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .icon-box{
   display: flex;
@@ -47,4 +54,13 @@ export default {
 .icon-box .icon-img {
   height: 200px;
 }
+footer{
+  position: absolute;
+  bottom: 20px;
+  align-self: center;
+}
+.author{
+  cursor: pointer;
+}
+
 </style>
