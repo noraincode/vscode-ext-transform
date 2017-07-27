@@ -28,5 +28,5 @@
 ### 4、如有疑问，可与我联系，norain4u@yeah.net，或在issue中提出
 
 ## 关于
-<ttps://code.visualstudio.com/docs/editor/extension-gallery?pub=HookyQR&ext=beautify#_common-questions>
+<https://code.visualstudio.com/docs/editor/extension-gallery?pub=HookyQR&ext=beautify#_common-questions>
 该网站为本工具提供了插件下载地址的拼接方式

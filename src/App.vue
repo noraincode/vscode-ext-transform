@@ -3,7 +3,7 @@
     <header class="navbar">
       <section class="navbar-section">
         <a href="https://marketplace.visualstudio.com" class="navbar-brand mr-10" target="_blank">VS Code 插件官网</a>
-        <a class="btn btn-link" @click="showHelp=!showHelp">如何使用</a>
+        <a class="btn btn-link" href="https://github.com/noraincode/vscode-ext-transform/blob/master/README.md" target="_blank">如何使用</a>
       </section>
       <section class="navbar-section">
         <div class="input-group input-inline">
@@ -18,22 +18,15 @@
     <footer>
       © 2017 Designed By &nbsp;<a class="author" href="https://github.com/noraincode" target="_blank">norain4u</a>
     </footer>
-    <help :show.sync="showHelp"></help>
   </div>
 </template>
 
 <script>
 import Home from './components/index'
-import help from './components/help.vue'
 export default {
   name: 'app',
   components: {
-    Home, help
-  },
-  data () {
-    return {
-      showHelp: false
-    }
+    Home
   }
 }
 </script>
