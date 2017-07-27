@@ -11,7 +11,10 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
     "spectre.css": "^0.2.14",
+    "v-clipboard": "^1.0.4",
     "vue": "^2.3.3"
   },
   "devDependencies": {
