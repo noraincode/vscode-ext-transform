@@ -21,9 +21,7 @@
                placeholder="0.0.1"
                v-model="version"/>
       </div>
-      <div class="form-group column col-xl-3">
-        <button class="btn transform-btn" @click="startCheck()">转换</button>
-      </div>
+      <button class="btn transform-btn" @click="startCheck()">转换</button>
     </div>
     <div class="url-box">
       <div class="form-group column col-xl-6 has-icon-right">
@@ -36,7 +34,7 @@
                v-model="finalUrl"/>
       </div>
       <div class="form-group column col-xl-3">
-        <button :disabled='!checkFinalSuccess' class="btn transform-btn tooltip tooltip-right" data-tooltip="复制到剪切板" @click="copy()"><i class="icon icon-download"></i></button>
+        <button :disabled='!checkFinalSuccess' class="btn copy-btn tooltip tooltip-right" data-tooltip="复制到剪切板" @click="copy()"><i class="icon icon-download"></i></button>
       </div>
     </div>
   </div>
@@ -121,14 +119,19 @@ export default {
   line-height: 25px;
   margin-left: 10px;
   margin-right: 10px;
+  width: 100px;
 }
 .form-group{
   display: flex;
 }
 .transform-btn{
   margin-left: 5px;
+  margin-top: 12px;
+}
+.copy-btn {
+  margin-left: 5px;
 }
 .has-icon-right .form-icon {
-    right: 10px;
+  right: 10px;
 }
 </style>

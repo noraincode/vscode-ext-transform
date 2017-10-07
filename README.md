@@ -33,4 +33,4 @@
 
 ## 关于
 <https://code.visualstudio.com/docs/editor/extension-gallery?pub=HookyQR&ext=beautify#_common-questions>
-该网站为本工具提供了插件下载地址的拼接方式
+感谢该网站为本工具提供了插件下载地址的拼接方式
